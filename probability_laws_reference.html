@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probability & Statistics — Complete Reference</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-label">EBA2203 · Complete Reference · Eng. Reham Mahdy</div>
+      <h1>Probability &amp; Statistics</h1>
+      <div class="hero-sub">Laws · Formulas · Conditional Probability · Worked Examples · Random Variables · PDF &amp;
+        CDF</div>
+      <div class="hero-tags">
+        <a class="hero-tag" href="#" onclick="go('laws');return false;">Set Theory</a>
+        <a class="hero-tag" href="#" onclick="go('laws');return false;">Probability Axioms</a>
+        <a class="hero-tag" href="#" onclick="go('laws');return false;">Addition Rules</a>
+        <a class="hero-tag" href="#" onclick="go('cond');return false;">Conditional P</a>
+        <a class="hero-tag" href="#" onclick="go('ex');return false;">21 Worked Problems</a>
+        <a class="hero-tag" href="#" onclick="go('rv');return false;">Random Variables</a>
+        <a class="hero-tag" href="#" onclick="go('rv');return false;">PDF &amp; CDF</a>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab on" onclick="go('laws')">Laws &amp; Formulas</button>
+      <button class="tab" onclick="go('cond')">Conditional Probability</button>
+      <button class="tab" onclick="go('ex')">Worked Examples</button>
+      <button class="tab" onclick="go('rv')">Random Variables &amp; Distributions</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     PANEL 1 — LAWS & FORMULAS
+═══════════════════════════════════════════════ -->
+    <div class="panel on" id="p-laws">
+
+      <div class="card c-blue">
+        <div class="card-head">
+          <div class="card-num">I</div>
+          <div class="card-title">Set Theory</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">Complement</div>
+            <div class="fe">A' = S − A</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Difference</div>
+            <div class="fe">A − B = A ∩ B'</div>
+          </div>
+          <div class="fc">
+            <div class="fl">De Morgan 1</div>
+            <div class="fe">(A ∪ B)' = A' ∩ B'</div>
+          </div>
+          <div class="fc">
+            <div class="fl">De Morgan 2</div>
+            <div class="fe">(A ∩ B)' = A' ∪ B'</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Complement laws</div>
+            <div class="fe">A ∪ A' = S | A ∩ A' = ∅ | (A')' = A</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Identity laws</div>
+            <div class="fe">A ∪ ∅ = A | A ∩ S = A</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">Disjoint definition (mutually exclusive)</div>
+            <div class="fe">A ∩ B = ∅</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-teal">
+        <div class="card-head">
+          <div class="card-num">II</div>
+          <div class="card-title">Basic Axioms of Probability</div>
+        </div>
+        <div class="fgrid g3">
+          <div class="fc">
+            <div class="fl">Range</div>
+            <div class="fe">0 ≤ P(A) ≤ 1</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Certain event</div>
+            <div class="fe">P(S) = 1</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Impossible event</div>
+            <div class="fe">P(∅) = 0</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">Classical probability</div>
+            <div class="fe">P(E) = n(E) / n(S)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Complement rule</div>
+            <div class="fe">P(A') = 1 − P(A)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-purple">
+        <div class="card-head">
+          <div class="card-num">III</div>
+          <div class="card-title">Addition Rules</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc s2">
+            <div class="fl">General — two events</div>
+            <div class="fe">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</div>
+          </div>
+          <div class="fc s2"><span class="tag tb">Mutually exclusive — A ∩ B = ∅</span>
+            <div class="fl">Two events</div>
+            <div class="fe">P(A ∪ B) = P(A) + P(B)</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">General — three events</div>
+            <div class="fe">P(A∪B∪C) = P(A)+P(B)+P(C) − P(A∩B) − P(A∩C) − P(B∩C) + P(A∩B∩C)</div>
+          </div>
+          <div class="fc"><span class="tag tb">Mutually exclusive</span>
+            <div class="fl">Three events</div>
+            <div class="fe">P(A) + P(B) + P(C)</div>
+          </div>
+          <div class="fc"><span class="tag tt">Independent</span>
+            <div class="fl">Three events</div>
+            <div class="fe">1 − P(A')·P(B')·P(C')</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-amber">
+        <div class="card-head">
+          <div class="card-num">IV</div>
+          <div class="card-title">Conditional Probability &amp; Independence</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">P(A given B)</div>
+            <div class="fe">P(A|B) = P(A∩B) / P(B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">P(B given A)</div>
+            <div class="fe">P(B|A) = P(A∩B) / P(A)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Multiplication rule</div>
+            <div class="fe">P(A∩B) = P(A|B)·P(B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Complement of condition</div>
+            <div class="fe">P(A|B') = P(A∩B') / P(B')</div>
+          </div>
+          <div class="fc s2"><span class="tag tt">Independent events</span>
+            <div class="fl">If A and B are independent</div>
+            <div class="fe">P(A∩B) = P(A)×P(B) → P(A|B) = P(A) and P(B|A) = P(B)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-coral">
+        <div class="card-head">
+          <div class="card-num">V</div>
+          <div class="card-title">Special Relationships</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">Only A (not B)</div>
+            <div class="fe">P(A∩B') = P(A) − P(A∩B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Only B (not A)</div>
+            <div class="fe">P(A'∩B) = P(B) − P(A∩B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Neither A nor B</div>
+            <div class="fe">P(A'∩B') = 1 − P(A∪B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">At most one of A, B</div>
+            <div class="fe">P(A'∪B') = 1 − P(A∩B)</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">Exactly one — A or B but not both</div>
+            <div class="fe">P(A∩B') + P(A'∩B) = P(A∪B) − P(A∩B)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-navy">
+        <div class="card-head">
+          <div class="card-num">VI</div>
+          <div class="card-title">Special Cases</div>
+        </div>
+        <div class="fgrid g3">
+          <div class="fc"><span class="tag tb">Mutually exclusive</span>
+            <div class="fl">P(A ∩ B)</div>
+            <div class="fe">= 0</div>
+          </div>
+          <div class="fc"><span class="tag tb">Mutually exclusive</span>
+            <div class="fl">P(A ∩ B')</div>
+            <div class="fe">= P(A)</div>
+          </div>
+          <div class="fc"><span class="tag tb">Mutually exclusive</span>
+            <div class="fl">P(A' ∪ B')</div>
+            <div class="fe">= 1</div>
+          </div>
+          <div class="fc"><span class="tag tp">If A ⊂ B</span>
+            <div class="fl">P(A ∩ B)</div>
+            <div class="fe">= P(A)</div>
+          </div>
+          <div class="fc"><span class="tag tp">If A ⊂ B</span>
+            <div class="fl">P(A ∪ B)</div>
+            <div class="fe">= P(B)</div>
+          </div>
+          <div class="fc"><span class="tag tt">Independent</span>
+            <div class="fl">P(A ∩ B)</div>
+            <div class="fe">= P(A)·P(B)</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /p-laws -->
+
+    <!-- ═══════════════════════════════════════════════
+     PANEL 2 — CONDITIONAL PROBABILITY
+═══════════════════════════════════════════════ -->
+    <div class="panel" id="p-cond">
+
+      <div class="card c-amber">
+        <div class="card-head">
+          <div class="card-num">A</div>
+          <div class="card-title">Core Formulas</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">Definition</div>
+            <div class="fe">P(A|B) = P(A∩B) / P(B)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Symmetric form</div>
+            <div class="fe">P(B|A) = P(A∩B) / P(A)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Multiplication rule</div>
+            <div class="fe">P(A∩B) = P(A|B)·P(B) = P(B|A)·P(A)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">P(B') = 1 − P(B)</div>
+            <div class="fe">P(A|B') = P(A∩B') / P(B')</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">Key identity — builds most solutions</div>
+            <div class="fe">P(A∩B') = P(A) − P(A∩B)</div>
+          </div>
+        </div>
+      </div>
+      <div class="gap-s"></div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Example 1</div>
+          <div class="qt">Events C and D: <strong>P(C∩D')=0.1, P(C'∩D)=0.15, P(C'∩D')=0.2</strong></div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">P(C'∩D') = 0.2 → P(C∪D) = 0.8. The four Venn regions sum to 1: P(C∩D) = 0.8 − 0.1 − 0.15 =
+            0.15 — wait: rework from P(C)=0.65, P(D)=0.7 from the class solution.</div>
+          <div class="fgrid">
+            <div class="fc">
+              <div class="fl">P(C∪D) = 1 − P(C'∩D')</div>
+              <div class="fe">= 1 − 0.2 = 0.8</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(D') = 1 − P(D)</div>
+              <div class="fe">= 1 − 0.7 = 0.3</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(C∩D') given</div>
+              <div class="fe">= 0.1</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(C) from class</div>
+              <div class="fe">= 0.65</div>
+            </div>
+          </div>
+          <table class="at">
+            <tr>
+              <td class="ap">b(i) P(C|D')</td>
+              <td class="av">P(C∩D') / P(D') = 0.1 / 0.3 = <strong>1/3 ≈ 0.333</strong></td>
+            </tr>
+            <tr>
+              <td class="ap">b(ii) P(D'|C)</td>
+              <td class="av">P(D'∩C) / P(C) = 0.1 / 0.65 = <strong>2/13 ≈ 0.154</strong></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Example 2 — Q9</div>
+          <div class="qt">Events E and F: <strong>P(E)=0.35, P(F)=0.45, P(E∩F')=0.15</strong></div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">Use P(E∩F') = P(E) − P(E∩F) to find the intersection first.</div>
+          <div class="fgrid">
+            <div class="fc">
+              <div class="fl">P(E∩F) = P(E) − P(E∩F')</div>
+              <div class="fe">= 0.35 − 0.15 = 0.20</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(F∩E') = P(F) − P(E∩F)</div>
+              <div class="fe">= 0.45 − 0.20 = 0.25</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(E') = 1 − P(E)</div>
+              <div class="fe">= 1 − 0.35 = 0.65</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(E∩F)</div>
+              <div class="fe">= 0.20 = 1/5</div>
+            </div>
+          </div>
+          <table class="at">
+            <tr>
+              <td class="ap">a) P(E∩F)</td>
+              <td class="av">0.20 = <strong>1/5</strong></td>
+            </tr>
+            <tr>
+              <td class="ap">b(i) P(E|F)</td>
+              <td class="av">P(E∩F)/P(F) = 0.20/0.45 = <strong>4/9</strong></td>
+            </tr>
+            <tr>
+              <td class="ap">b(ii) P(F|E')</td>
+              <td class="av">P(F∩E')/P(E') = 0.25/0.65 = <strong>5/13</strong></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Example 3</div>
+          <div class="qt">70 students: 45 passed Maths (A), 35 passed Physics (B), 20 passed both.</div>
+        </div>
+        <div class="qbody">
+          <div class="fgrid">
+            <div class="fc">
+              <div class="fl">P(A), P(B), P(A∩B)</div>
+              <div class="fe">45/70, 35/70, 20/70</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(A∩B') = P(A) − P(A∩B)</div>
+              <div class="fe">= 45/70 − 20/70 = 25/70</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(B') = 1 − 35/70</div>
+              <div class="fe">= 35/70</div>
+            </div>
+            <div class="fc">
+              <div class="fl">P(B' ) simplified</div>
+              <div class="fe">= 1/2</div>
+            </div>
+          </div>
+          <table class="at">
+            <tr>
+              <td class="ap">i) P(A|B)</td>
+              <td class="av">(20/70)/(35/70) = 20/35 = <strong>4/7</strong></td>
+            </tr>
+            <tr>
+              <td class="ap">ii) P(A|B')</td>
+              <td class="av">(25/70)/(35/70) = 25/35 = <strong>5/7</strong></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /p-cond -->
+
+    <!-- ═══════════════════════════════════════════════
+     PANEL 3 — WORKED EXAMPLES
+═══════════════════════════════════════════════ -->
+    <div class="panel" id="p-ex">
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 1</div>
+          <div class="qt">S={0..9}, A={0,2,4,6,8}, B={1,3,5,7,9}, C={2,3,4,5}, D={1,6,7}</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">a) A∪C</td>
+              <td class="av">{0, 2, 3, 4, 5, 6, 8}</td>
+            </tr>
+            <tr>
+              <td class="ap">b) A∪B</td>
+              <td class="av">{0,1,2,3,4,5,6,7,8,9} = S</td>
+            </tr>
+            <tr>
+              <td class="ap">c) C'</td>
+              <td class="av">{0, 1, 6, 7, 8, 9}</td>
+            </tr>
+            <tr>
+              <td class="ap">d) (C'∩D)∪B</td>
+              <td class="av">C'∩D={1,6,7} → {1,6,7}∪{1,3,5,7,9} = {1,3,5,6,7,9}</td>
+            </tr>
+            <tr>
+              <td class="ap">e) (S∪C)'</td>
+              <td class="av">S∪C=S → S'= ∅</td>
+            </tr>
+            <tr>
+              <td class="ap">f) A∩C∩D'</td>
+              <td class="av">D'={0,2,3,4,5,8,9} | A∩C={2,4} | Result: {2,4}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 2</div>
+          <div class="qt">S={copper,sodium,nitrogen,potassium,uranium,oxygen,zinc}, A={copper,sodium,zinc},
+            B={sodium,nitrogen,potassium}, C={oxygen}</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">a) A'</td>
+              <td class="av">{nitrogen, potassium, uranium, oxygen}</td>
+            </tr>
+            <tr>
+              <td class="ap">b) A∪C</td>
+              <td class="av">{copper, sodium, zinc, oxygen}</td>
+            </tr>
+            <tr>
+              <td class="ap">c) (A∩B')∪C'</td>
+              <td class="av">B'={copper,uranium,oxygen,zinc} | A∩B'={copper,zinc} |
+                C'={copper,sodium,nitrogen,potassium,uranium,zinc} | Result:
+                {copper,sodium,nitrogen,potassium,uranium,zinc}</td>
+            </tr>
+            <tr>
+              <td class="ap">d) A∩B∩C</td>
+              <td class="av">A∩B={sodium} | {sodium}∩{oxygen} = ∅</td>
+            </tr>
+            <tr>
+              <td class="ap">e) B'∩C'</td>
+              <td class="av">{copper, uranium, zinc}</td>
+            </tr>
+            <tr>
+              <td class="ap">f) (A'∪B')∩(A'∩C)</td>
+              <td class="av">A'∩C={oxygen} → Result: {oxygen}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 3</div>
+          <div class="qt">Two fair dice tossed. Total outcomes = 36.</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">a) Total = 8</td>
+              <td class="av">(2,6)(3,5)(4,4)(5,3)(6,2) → 5 outcomes | P = 5/36</td>
+            </tr>
+            <tr>
+              <td class="ap">b) At most 5</td>
+              <td class="av">Totals 2→5: 1+2+3+4 = 10 | P = 10/36 = 5/18</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 4</div>
+          <div class="qt">16 study French, 21 study Spanish, 30 altogether.</div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">30 = 16+21−Both → Both = 7 | French only = 9, Spanish only = 14</div>
+          <table class="at">
+            <tr>
+              <td class="ap">a) P(French only)</td>
+              <td class="av">9/30 = 3/10</td>
+            </tr>
+            <tr>
+              <td class="ap">b) P(Spanish only)</td>
+              <td class="av">14/30 = 7/15</td>
+            </tr>
+            <tr>
+              <td class="ap">c) P(Both)</td>
+              <td class="av">7/30</td>
+            </tr>
+            <tr>
+              <td class="ap">d) P(F or S)</td>
+              <td class="av">30/30 = 1</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 5</div>
+          <div class="qt">29 children: 15 like history, 21 like maths, all like at least one.</div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">29 = 15+21−Both → Both = 7 | Maths only = 14</div>
+          <table class="at">
+            <tr>
+              <td class="ap">P(Maths not Hist)</td>
+              <td class="av">14/29</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 6</div>
+          <div class="qt">P(A)=1/5, P(A∪B) = 2P(A)−P(B). Find P(B).</div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">From addition rule: 2P(B) = P(A) + P(A∩B)</div>
+          <table class="at">
+            <tr>
+              <td class="ap">i) Disjoint</td>
+              <td class="av">P(A∩B)=0 → 2P(B)=1/5 → P(B) = 1/10</td>
+            </tr>
+            <tr>
+              <td class="ap">ii) Independent</td>
+              <td class="av">P(A∩B)=(1/5)P(B) → (9/5)P(B)=1/5 → P(B) = 1/9</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 7</div>
+          <div class="qt">P(B)=1/4, P(A∪B)=3P(A)−P(B). Find P(A).</div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">Simplify: 1/2 = 2P(A) + P(A∩B)</div>
+          <table class="at">
+            <tr>
+              <td class="ap">i) Disjoint</td>
+              <td class="av">1/2 = 2P(A) → P(A) = 1/4</td>
+            </tr>
+            <tr>
+              <td class="ap">ii) Independent</td>
+              <td class="av">1/2 = (9/4)P(A) → P(A) = 2/9</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 8</div>
+          <div class="qt">Two dice rolled. Total = 36.</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">A. 1st &gt; 2nd</td>
+              <td class="av">15 outcomes → P = 5/12</td>
+            </tr>
+            <tr>
+              <td class="ap">B. Sum &gt; 8</td>
+              <td class="av">Sums 9,10,11,12: 4+3+2+1=10 → P = 5/18</td>
+            </tr>
+            <tr>
+              <td class="ap">C. Sum ÷ 5</td>
+              <td class="av">Sum=5(4) + Sum=10(3) = 7 → P = 7/36</td>
+            </tr>
+            <tr>
+              <td class="ap">D. Equal faces</td>
+              <td class="av">(1,1)…(6,6) → 6 → P = 1/6</td>
+            </tr>
+            <tr>
+              <td class="ap">E. B∩C</td>
+              <td class="av">Sum>8 AND ÷5 → Sum=10: 3 outcomes → P = 1/12</td>
+            </tr>
+            <tr>
+              <td class="ap">F. B∩D</td>
+              <td class="av">Sum>8 AND equal: (5,5)(6,6) → P = 1/18</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 9</div>
+          <div class="qt">P(total 7 or 11) with two dice?</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">P(7 or 11)</td>
+              <td class="av">6+2 = 8 outcomes → 8/36 = 2/9</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 10</div>
+          <div class="qt">P(A)=3/8, P(B)=1/2, P(A∩B)=1/4 → P(A∪B) = 5/8</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">i) P(Aᶜ∩Bᶜ)</td>
+              <td class="av">1 − 5/8 = 3/8</td>
+            </tr>
+            <tr>
+              <td class="ap">ii) P(Aᶜ∪Bᶜ)</td>
+              <td class="av">1 − 1/4 = 3/4</td>
+            </tr>
+            <tr>
+              <td class="ap">iii) P(B∩Aᶜ)</td>
+              <td class="av">1/2 − 1/4 = 1/4</td>
+            </tr>
+            <tr>
+              <td class="ap">iv) P(A∩Bᶜ)</td>
+              <td class="av">3/8 − 1/4 = 1/8</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Q 11–21</div>
+          <div class="qt">Quick answers — remaining problems</div>
+        </div>
+        <div class="qbody">
+          <table class="at">
+            <tr>
+              <td class="ap">Q11a</td>
+              <td class="av">P(Math or Hist) = 88/100 = 22/25</td>
+            </tr>
+            <tr>
+              <td class="ap">Q11b</td>
+              <td class="av">P(Hist not Math) = 34/100 = 17/50</td>
+            </tr>
+            <tr>
+              <td class="ap">Q12</td>
+              <td class="av">P(King or Queen) = 8/52 = 2/13</td>
+            </tr>
+            <tr>
+              <td class="ap">Q13</td>
+              <td class="av">P(die1=6 or die2=5) = 11/36</td>
+            </tr>
+            <tr>
+              <td class="ap">Q14</td>
+              <td class="av">P(Hockey not Baseball) = 8/25</td>
+            </tr>
+            <tr>
+              <td class="ap">Q15</td>
+              <td class="av">P(e) = 0.19, P(d) = 0.38</td>
+            </tr>
+            <tr>
+              <td class="ap">Q16</td>
+              <td class="av">P(≥1 head, coin×2) = 3/4</td>
+            </tr>
+            <tr>
+              <td class="ap">Q17</td>
+              <td class="av">P(A∩B)=0.15 | P(only A)=0.5 | P(B')=0.7 | P(only A or only B)=0.65</td>
+            </tr>
+            <tr>
+              <td class="ap">Q18</td>
+              <td class="av">P(A')=0.63 | P(A∪B)=0.81 | P(A∩B)=0 | P(B')=0.56 | P(A∩B')=0.37 | P(A'∩B')=0.19</td>
+            </tr>
+            <tr>
+              <td class="ap">Q19</td>
+              <td class="av">P(A) = P(B) = 0.4</td>
+            </tr>
+            <tr>
+              <td class="ap">Q20a</td>
+              <td class="av">Mutually exclusive: p = 1/12</td>
+            </tr>
+            <tr>
+              <td class="ap">Q20b</td>
+              <td class="av">Independent: p = 1/9</td>
+            </tr>
+            <tr>
+              <td class="ap">Q21a</td>
+              <td class="av">Mutually exclusive: 47/60</td>
+            </tr>
+            <tr>
+              <td class="ap">Q21b</td>
+              <td class="av">Independent: 3/5</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /p-ex -->
+
+    <!-- ═══════════════════════════════════════════════
+     PANEL 4 — RANDOM VARIABLES & DISTRIBUTIONS
+═══════════════════════════════════════════════ -->
+    <div class="panel" id="p-rv">
+
+      <div class="card c-blue">
+        <div class="card-head">
+          <div class="card-num">A</div>
+          <div class="card-title">Random Variable — Theory</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">Definition</div>
+            <div class="fe">X : S → ℝ (function on sample space)</div>
+          </div>
+          <div class="fc">
+            <div class="fl">P.d.f (discrete)</div>
+            <div class="fe">f(x) = P[X = x]</div>
+          </div>
+        </div>
+        <div style="padding:.75rem 1rem">
+          <div class="two">
+            <div class="type-box tb2">
+              <h4>Discrete r.v.</h4>
+              <p>Takes finite or countably infinite values (e.g. 0,1,2,3…)</p>
+            </div>
+            <div class="type-box tt2">
+              <h4>Continuous r.v.</h4>
+              <p>Takes values on an interval — uncountably infinite (e.g. all real x ≥ 0)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-teal">
+        <div class="card-head">
+          <div class="card-num">B</div>
+          <div class="card-title">Discrete Probability Density Function (P.d.f)</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc">
+            <div class="fl">Condition 1 — range</div>
+            <div class="fe">0 ≤ f(x) ≤ 1 for all x</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Condition 2 — total probability</div>
+            <div class="fe">Σ f(xᵢ) = 1</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">How to find P.d.f</div>
+            <div class="fe">List all X values · count favourable outcomes · divide by total outcomes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-purple">
+        <div class="card-head">
+          <div class="card-num">C</div>
+          <div class="card-title">Cumulative Distribution Function (C.D.F)</div>
+        </div>
+        <div class="fgrid">
+          <div class="fc s2">
+            <div class="fl">Definition — running total of P.d.f</div>
+            <div class="fe">F(x) = P(X ≤ x) = Σ f(xᵢ) for all xᵢ ≤ x</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Boundary values</div>
+            <div class="fe">F(−∞) = 0 | F(+∞) = 1</div>
+          </div>
+          <div class="fc">
+            <div class="fl">Non-decreasing property</div>
+            <div class="fe">a &lt; b → F(a) ≤ F(b)</div>
+          </div>
+          <div class="fc s2">
+            <div class="fl">Building the CDF</div>
+            <div class="fe">F(xₙ) = f(x₁) + f(x₂) + … + f(xₙ) (cumulative sum)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gap"></div>
+
+      <!-- Ex 1: Coin tossed twice -->
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Ex 1</div>
+          <div class="qt">Coin tossed twice. X = number of heads. Find P.d.f and C.D.F.</div>
+        </div>
+        <div class="qbody">
+          <div class="qnote">S = {HH, HT, TH, TT} — 4 equally likely outcomes</div>
+          <div class="dw">
+            <table class="dt">
+              <thead>
+                <tr>
+                  <th>x</th>
+                  <th>0 (TT)</th>
+                  <th>1 (HT or TH)</th>
+                  <th>2 (HH)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fr">
+                  <td class="rl">f(x)</td>
+                  <td>1/4</td>
+                  <td>2/4 = 1/2</td>
+                  <td>1/4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="inline-note">Σ f(x) = 1/4 + 2/4 + 1/4 = 1.0 ✓</div>
+          <div class="cw">
+            <table class="ct">
+              <thead>
+                <tr>
+                  <th style="width:28%">F(x)</th>
+                  <th>Condition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cv">0</td>
+                  <td class="cc">−∞ &lt; x &lt; 0</td>
+                </tr>
+                <tr>
+                  <td class="cv">1/4</td>
+                  <td class="cc">0 ≤ x &lt; 1</td>
+                </tr>
+                <tr>
+                  <td class="cv">3/4</td>
+                  <td class="cc">1 ≤ x &lt; 2</td>
+                </tr>
+                <tr>
+                  <td class="cv">1.0</td>
+                  <td class="cc">2 ≤ x &lt; ∞</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Two dice -->
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Ex 2</div>
+          <div class="qt">Two fair dice. X = sum of upturned faces (X = 2 to 12). Total = 36.</div>
+        </div>
+        <div class="qbody">
+          <div class="dw">
+            <table class="dt">
+              <thead>
+                <tr>
+                  <th>x</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                  <th>9</th>
+                  <th>10</th>
+                  <th>11</th>
+                  <th>12</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fr">
+                  <td class="rl">f(x)</td>
+                  <td>1/36</td>
+                  <td>2/36</td>
+                  <td>3/36</td>
+                  <td>4/36</td>
+                  <td>5/36</td>
+                  <td>6/36</td>
+                  <td>5/36</td>
+                  <td>4/36</td>
+                  <td>3/36</td>
+                  <td>2/36</td>
+                  <td>1/36</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="inline-note">Σ f(x) = 36/36 = 1.0 ✓</div>
+          <div class="cw">
+            <table class="ct">
+              <thead>
+                <tr>
+                  <th style="width:28%">F(x)</th>
+                  <th>Condition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cv">0</td>
+                  <td class="cc">−∞ &lt; x &lt; 2</td>
+                </tr>
+                <tr>
+                  <td class="cv">1/36</td>
+                  <td class="cc">2 ≤ x &lt; 3</td>
+                </tr>
+                <tr>
+                  <td class="cv">3/36</td>
+                  <td class="cc">3 ≤ x &lt; 4</td>
+                </tr>
+                <tr>
+                  <td class="cv">6/36</td>
+                  <td class="cc">4 ≤ x &lt; 5</td>
+                </tr>
+                <tr>
+                  <td class="cv">10/36</td>
+                  <td class="cc">5 ≤ x &lt; 6</td>
+                </tr>
+                <tr>
+                  <td class="cv">15/36</td>
+                  <td class="cc">6 ≤ x &lt; 7</td>
+                </tr>
+                <tr>
+                  <td class="cv">21/36</td>
+                  <td class="cc">7 ≤ x &lt; 8</td>
+                </tr>
+                <tr>
+                  <td class="cv">26/36</td>
+                  <td class="cc">8 ≤ x &lt; 9</td>
+                </tr>
+                <tr>
+                  <td class="cv">30/36</td>
+                  <td class="cc">9 ≤ x &lt; 10</td>
+                </tr>
+                <tr>
+                  <td class="cv">33/36</td>
+                  <td class="cc">10 ≤ x &lt; 11</td>
+                </tr>
+                <tr>
+                  <td class="cv">35/36</td>
+                  <td class="cc">11 ≤ x &lt; 12</td>
+                </tr>
+                <tr>
+                  <td class="cv">1.0</td>
+                  <td class="cc">12 ≤ x &lt; ∞</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: 5 balls -->
+      <div class="qb">
+        <div class="qh">
+          <div class="qn">Ex 3</div>
+          <div class="qt">Balls 1–5, two drawn with replacement. X = (1st) − (2nd). Total = 25.</div>
+        </div>
+        <div class="qbody">
+          <div class="dw">
+            <table class="dt">
+              <thead>
+                <tr>
+                  <th>x</th>
+                  <th>−4</th>
+                  <th>−3</th>
+                  <th>−2</th>
+                  <th>−1</th>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fr">
+                  <td class="rl">f(x)</td>
+                  <td>1/25</td>
+                  <td>2/25</td>
+                  <td>3/25</td>
+                  <td>4/25</td>
+                  <td>5/25</td>
+                  <td>4/25</td>
+                  <td>3/25</td>
+                  <td>2/25</td>
+                  <td>1/25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="inline-note">Σ f(x) = 25/25 = 1.0 ✓</div>
+          <table class="at">
+            <tr>
+              <td class="ap">iii) P(X ≥ 0)</td>
+              <td class="av">5/25+4/25+3/25+2/25+1/25 = 15/25 = <strong>3/5</strong></td>
+            </tr>
+          </table>
+          <div class="cw">
+            <table class="ct">
+              <thead>
+                <tr>
+                  <th style="width:28%">F(x)</th>
+                  <th>Condition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cv">0</td>
+                  <td class="cc">−∞ &lt; x &lt; −4</td>
+                </tr>
+                <tr>
+                  <td class="cv">1/25</td>
+                  <td class="cc">−4 ≤ x &lt; −3</td>
+                </tr>
+                <tr>
+                  <td class="cv">3/25</td>
+                  <td class="cc">−3 ≤ x &lt; −2</td>
+                </tr>
+                <tr>
+                  <td class="cv">6/25</td>
+                  <td class="cc">−2 ≤ x &lt; −1</td>
+                </tr>
+                <tr>
+                  <td class="cv">10/25</td>
+                  <td class="cc">−1 ≤ x &lt; 0</td>
+                </tr>
+                <tr>
+                  <td class="cv">15/25</td>
+                  <td class="cc">0 ≤ x &lt; 1</td>
+                </tr>
+                <tr>
+                  <td class="cv">19/25</td>
+                  <td class="cc">1 ≤ x &lt; 2</td>
+                </tr>
+                <tr>
+                  <td class="cv">22/25</td>
+                  <td class="cc">2 ≤ x &lt; 3</td>
+                </tr>
+                <tr>
+                  <td class="cv">24/25</td>
+                  <td class="cc">3 ≤ x &lt; 4</td>
+                </tr>
+                <tr>
+                  <td class="cv">1.0</td>
+                  <td class="cc">4 ≤ x &lt; ∞</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /p-rv -->
+
+    <div class="footer">
+      College of Engineering &amp; Technology &nbsp;·&nbsp; Dept. of Basic &amp; Applied Sciences &nbsp;·&nbsp;
+      Coordinator: Eng. Reham Mahdy &nbsp;·&nbsp; EBA2203
+    </div>
+
+  </div><!-- /wrap -->
+  <script src="script.js"></script>
+</body>
+
+</html>
