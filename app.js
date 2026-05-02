@@ -48,10 +48,11 @@ function renderCard(item) {
 
   let cellsHtml = item.cells.map(c => {
     const sp = spanClass(c.span);
+    const exprCls = c.hot ? 'fe formula-hot' : c.key ? 'fe formula-key' : c.danger ? 'fe formula-danger' : 'fe';
     return `<div class="fc${sp ? ' ' + sp : ''}">
       ${c.tag ? renderTag(c.tag) : ''}
       <div class="fl">${c.label}</div>
-      <div class="fe">${c.expr}</div>
+      <div class="${exprCls}">${c.expr}</div>
       ${c.note ? `<div class="fn">${c.note}</div>` : ''}
     </div>`;
   }).join('');

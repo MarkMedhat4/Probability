@@ -176,6 +176,25 @@ const PANEL_RV = [
       { label: 'P(a ≤ x ≤ b) using CDF', expr: 'P(a ≤ x ≤ b) = F(b) − F(a)', span: 2 },
     ]
   },
+  {
+    type: 'card',
+    color: 'c-green',
+    num: 'E',
+    title: 'Expectation, Variance & Standard Deviation',
+    grid: 2,
+    cells: [
+      { label: 'Expected Value (Discrete)',    expr: 'E(X) = Σ x · P(x)', key: true },
+      { label: 'Expected Value (Continuous)',  expr: 'E(X) = ∫ x · f(x) dx' },
+      { label: 'Second Moment (Discrete)',     expr: 'E(X²) = Σ x² · P(x)' },
+      { label: 'Second Moment (Continuous)',   expr: 'E(X²) = ∫ x² · f(x) dx' },
+      { label: 'Variance',  expr: 'Var(X) = E(X²) − [E(X)]²',
+        note: 'Variance measures spread around the mean', hot: true },
+      { label: 'Standard Deviation',          expr: 'σ = √Var(X)' },
+      { label: 'Linear Property',             expr: 'E(aX + b) = a·E(X) + b', span: 2 },
+      { label: 'Variance Rule',               expr: 'Var(aX + b) = a² · Var(X)',
+        span: 2, danger: true },
+    ]
+  },
 ];
 
 /* ── PANEL: DISCRETE EXAMPLES ────────────────────────── */
